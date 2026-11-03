@@ -10,7 +10,9 @@ dashboard_bp = Blueprint("dashboard", __name__)
 
 @dashboard_bp.get("/")
 def home():
-    return redirect(url_for("dashboard.index")) if current_user.is_authenticated else redirect(url_for("auth.login"))
+    if current_user.is_authenticated:
+        return redirect(url_for("dashboard.index"))
+    return render_template("landing.html")
 
 @dashboard_bp.get("/dashboard")
 @login_required
@@ -39,3 +41,4 @@ def index():
         rooms_total=room_count, today_date=today, chart_data=get_daily_series(scope, today - timedelta(days=29)),
         change_percent=change,
         no_data_today=(get_daily_summary(scope, today)['bookings'] == 0))
+

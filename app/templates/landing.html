@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f8f3">
+  <meta name="description" content="GuestFlow helps guest house teams record room bookings and understand revenue, day by day.">
+  <title>GuestFlow — A clearer view of every stay</title>
+  <style>
+    :root{--ink:#18352c;--muted:#617169;--green:#236b4d;--lime:#c8e59b;--paper:#f7f8f3;--line:#e4e9df;--white:#fff;--serif:Georgia,'Times New Roman',serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,calc(100% - 48px));margin:auto}
+    .nav{height:82px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem;letter-spacing:-.04em}.brand-mark{display:grid;place-items:center;width:34px;height:34px;background:var(--green);border-radius:11px;color:#fff;font-size:19px}.nav-right{display:flex;align-items:center;gap:30px;font-size:.88rem;color:var(--muted)}.nav-right a:hover{color:var(--ink)}.nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;border-radius:999px;padding:12px 19px;font-weight:700;font-size:.88rem;transition:transform .2s,background .2s}.nav-cta:hover,.button:hover{background:var(--green);transform:translateY(-1px)}
+    .hero{display:grid;grid-template-columns:1fr 1.02fr;gap:56px;align-items:center;padding:66px 0 96px}.kicker{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-size:.72rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.kicker:before{content:'';width:7px;height:7px;border-radius:50%;background:#8ab76c}.hero h1{font:500 clamp(3.4rem,6vw,5.6rem)/.99 var(--serif);letter-spacing:-.055em;margin:23px 0 22px;max-width:560px}.hero h1 em{font-weight:400;color:var(--green)}.hero-copy{font-size:1.08rem;line-height:1.75;color:var(--muted);max-width:460px;margin:0 0 30px}.hero-actions{display:flex;align-items:center;gap:22px}.text-link{font-weight:700;font-size:.9rem}.text-link span{padding-left:5px;color:var(--green)}.fineprint{margin-top:17px;color:#89948c;font-size:.75rem}
+    .art-wrap{position:relative;min-height:440px;display:grid;place-items:center}.art-glow{position:absolute;width:78%;aspect-ratio:1;border-radius:50%;background:#e7efdf}.guesthouse-art{position:relative;width:100%;max-width:600px;filter:drop-shadow(0 22px 26px #254c3018);z-index:1}.art-card{position:absolute;z-index:2;background:#fff;border:1px solid #e7ebe4;box-shadow:0 14px 34px #274b3518;border-radius:14px;padding:13px 16px;color:var(--muted);font-size:.7rem}.art-card strong{display:block;color:var(--ink);font-size:.9rem;margin-top:4px}.art-card.rooms{top:46px;right:0;transform:rotate(3deg)}.art-card.revenue{bottom:48px;left:0;transform:rotate(-3deg)}.art-card .art-symbol{color:var(--green);font-size:.85rem;margin-right:4px}.art-caption{position:absolute;bottom:4px;right:14px;color:#879388;font-size:.67rem;letter-spacing:.02em;z-index:2}
+    .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:24px}.trust-label{font-size:.75rem;color:#8b968d}.trust-points{display:flex;gap:36px;font-size:.8rem;font-weight:650}.trust-points span:before{content:'✓';display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#e5efdc;color:var(--green);font-size:.68rem;margin-right:8px}
+    .features{padding:100px 0 106px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:35px}.section-head h2{font:500 clamp(2.1rem,4vw,3.25rem)/1.05 var(--serif);letter-spacing:-.045em;margin:14px 0 0;max-width:500px}.section-head p{max-width:340px;color:var(--muted);line-height:1.7;font-size:.92rem;margin:0 0 3px}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{background:#fff;border:1px solid var(--line);border-radius:15px;padding:23px;min-height:190px}.feature-icon{width:38px;height:38px;border-radius:12px;background:#edf3e8;display:grid;place-items:center;color:var(--green);font-size:18px;margin-bottom:26px}.feature h3{font-size:1rem;margin:0 0 9px;letter-spacing:-.02em}.feature p{font-size:.83rem;line-height:1.65;color:var(--muted);margin:0;max-width:300px}
+    .closing{background:#eaf0e5;padding:56px 0;margin-bottom:40px;border-radius:20px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding-left:6%;padding-right:6%}.closing h2{font:500 clamp(1.8rem,3.4vw,2.8rem)/1.1 var(--serif);letter-spacing:-.04em;margin:0 0 9px}.closing p{color:var(--muted);margin:0;font-size:.9rem}.footer{border-top:1px solid var(--line);padding:23px 0 32px;display:flex;justify-content:space-between;color:#869188;font-size:.74rem}.footer-brand{font-weight:800;color:var(--ink)}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;gap:30px;padding:44px 0 65px}.hero-copy{max-width:550px}.preview-wrap{max-width:610px;margin:auto;width:100%}.hero h1{max-width:650px}.trust{align-items:flex-start;flex-direction:column}.trust-points{gap:16px;flex-wrap:wrap}.features{padding:74px 0}.section-head{align-items:flex-start;flex-direction:column}.section-head p{max-width:520px}.closing{padding:38px 6%;align-items:flex-start;flex-direction:column}.nav{height:70px}}
+    @media(max-width:560px){.wrap{width:min(100% - 32px,1160px)}.nav-right>a:first-child{display:none}.hero{padding-top:38px}.hero h1{font-size:3.45rem}.hero-copy{font-size:.98rem}.hero-actions{gap:16px}.art-wrap{min-height:330px;margin:0 -8px}.art-card{padding:10px 12px;font-size:.62rem}.art-card strong{font-size:.78rem}.art-card.rooms{right:0;top:22px}.art-card.revenue{left:0;bottom:35px}.art-caption{font-size:.59rem}.feature-grid{grid-template-columns:1fr}.feature{min-height:0;padding:20px}.feature-icon{margin-bottom:18px}.trust-points{font-size:.74rem;gap:12px}.footer{gap:12px;flex-wrap:wrap}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="{{ url_for('dashboard.home') }}" aria-label="GuestFlow home"><span class="brand-mark">g</span>guestflow</a>
+    <nav class="nav-right" aria-label="Main navigation"><a href="#features">Features</a><a href="#about">About</a><a class="nav-cta" href="{{ url_for('auth.login') }}">Sign in <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main>
+    <section class="wrap hero">
+      <div>
+        <div class="kicker">For guest house teams</div>
+        <h1>A clearer view of <em>every stay.</em></h1>
+        <p class="hero-copy">Keep daily bookings and room revenue in one calm, simple place. GuestFlow helps you see how your guest house is doing, without the spreadsheet shuffle.</p>
+        <div class="hero-actions"><a class="button" href="{{ url_for('auth.login') }}">Sign in <span aria-hidden="true" style="padding-left:9px">↗</span></a><a class="text-link" href="#features">Take a look <span>↓</span></a></div>
+        <p class="fineprint">Made for the everyday rhythm of running a lodge.</p>
+      </div>
+      <div class="art-wrap" role="img" aria-label="A welcoming illustrated guest house surrounded by trees and garden paths">
+        <div class="art-glow"></div>
+        <svg class="guesthouse-art" viewBox="0 0 620 470" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f8dba9"/><stop offset="1" stop-color="#f5e8c9"/></linearGradient><linearGradient id="wall" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff8e8"/><stop offset="1" stop-color="#ead9b9"/></linearGradient></defs>
+          <ellipse cx="308" cy="410" rx="250" ry="34" fill="#d1ddc6"/><circle cx="476" cy="85" r="40" fill="#f3bd68"/>
+          <path d="M66 318c46-73 99-71 148 0v76H66z" fill="#9cba8a"/><path d="M420 317c50-83 113-80 158 0v77H420z" fill="#8eae80"/>
+          <path d="M0 345c112-53 190-21 282 17 108 45 208 32 338-20v92H0z" fill="#b6cda4"/><path d="M229 430c11-45 45-75 77-75s67 30 79 75" fill="#e8d9bb"/>
+          <path d="M187 200 310 95l123 105v173H187z" fill="url(#wall)" stroke="#b79b70" stroke-width="4" stroke-linejoin="round"/><path d="M164 207 310 78l145 129-17 19-128-114-128 114z" fill="#55785a" stroke="#3d6047" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M244 146h41v-44h50v44h41v-67h-41V45h-50v34h-41z" fill="#55785a" stroke="#3d6047" stroke-width="4" stroke-linejoin="round"/>
+          <rect x="214" y="234" width="52" height="56" rx="5" fill="#e7b86b" stroke="#b79b70" stroke-width="4"/><path d="M240 234v56m-26-28h52" stroke="#fff1d2" stroke-width="4"/>
+          <rect x="354" y="234" width="52" height="56" rx="5" fill="#e7b86b" stroke="#b79b70" stroke-width="4"/><path d="M380 234v56m-26-28h52" stroke="#fff1d2" stroke-width="4"/>
+          <path d="M285 373v-82c0-18 11-31 25-31s25 13 25 31v82" fill="#75553b"/><circle cx="320" cy="329" r="4" fill="#f3d58b"/><path d="M269 375h81" stroke="#b79b70" stroke-width="5" stroke-linecap="round"/>
+          <rect x="278" y="192" width="64" height="24" rx="12" fill="#fff9e9"/><text x="310" y="208" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#527350" letter-spacing="1">WELCOME</text>
+          <path d="M111 394c-4-42 5-75 27-98m0 98c2-31 20-51 40-61" fill="none" stroke="#55785a" stroke-width="8" stroke-linecap="round"/><circle cx="124" cy="291" r="24" fill="#73966a"/><circle cx="168" cy="326" r="19" fill="#83a875"/>
+          <path d="M475 396c-1-41 10-76 31-103m-30 103c4-27 20-44 39-55" fill="none" stroke="#55785a" stroke-width="8" stroke-linecap="round"/><circle cx="505" cy="291" r="25" fill="#73966a"/><circle cx="540" cy="333" r="19" fill="#83a875"/>
+          <path d="M93 384h35m-6 14h30m344-17h35m-2 16h29" stroke="#fff6e4" stroke-width="6" stroke-linecap="round"/>
+          <path d="M91 220c18-15 36-15 54 0m352-92c14-12 29-12 43 0" fill="none" stroke="#fff8e8" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="art-card rooms"><span class="art-symbol">✦</span> Made for guest houses<strong>Every stay, in good view</strong></div>
+        <div class="art-card revenue"><span class="art-symbol">↗</span> Daily room activity<strong>Clear revenue snapshots</strong></div>
+        <div class="art-caption">A warmer welcome to GuestFlow</div>
+      </div>
+    </section>
+    <section class="wrap trust" id="about"><span class="trust-label">A little less admin, a lot more clarity</span><div class="trust-points"><span>Quick daily entry</span><span>Revenue at a glance</span><span>Built for mobile</span></div></section>
+    <section class="wrap features" id="features">
+      <div class="section-head"><div><div class="kicker">The essentials, together</div><h2>Your guest house, in good view.</h2></div><p>From a busy day at the front desk to the end-of-month check-in, find the numbers you need without digging around.</p></div>
+      <div class="feature-grid">
+        <article class="feature"><div class="feature-icon" aria-hidden="true">↗</div><h3>Record bookings as they happen</h3><p>Add room activity in a few taps, from your phone or desktop. No guest names or payment details needed.</p></article>
+        <article class="feature"><div class="feature-icon" aria-hidden="true">▥</div><h3>See revenue take shape</h3><p>Follow daily and monthly totals, spot busy periods, and get a simple view across your properties.</p></article>
+        <article class="feature"><div class="feature-icon" aria-hidden="true">⌂</div><h3>Keep the team in sync</h3><p>Give managers a clear view of their lodge while keeping the overall picture at your fingertips.</p></article>
+      </div>
+    </section>
+    <section class="wrap closing"><div><h2>Ready for a clearer day?</h2><p>Sign in to your GuestFlow workspace and pick up where you left off.</p></div><a class="button" href="{{ url_for('auth.login') }}">Sign in to GuestFlow <span aria-hidden="true" style="padding-left:9px">↗</span></a></section>
+  </main>
+  <footer class="wrap footer"><span class="footer-brand">guestflow</span><span>Simple tools for welcoming people well.</span><span>© 2026 GuestFlow</span></footer>
+</body>
+</html>
+
